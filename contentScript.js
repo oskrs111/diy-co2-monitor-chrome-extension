@@ -64,9 +64,10 @@ function html_append(left, top) {
     });
 }
 
-function html_update(text) {
+function html_update(text, target) {
   document.getElementById("diy_text_id").innerHTML = text;
   if (setup == false) {
+    document.getElementById("diy_text_id").href = target;
     document.getElementById("diy_icon_id").src = logo_src;
     document.getElementById("diy_wrapper_id").addEventListener("mousedown", (mev) => {
       drag = new dragControl(mev.screenX, mev.screenY, document.getElementById("diy_wrapper_id"));
@@ -96,22 +97,25 @@ function html_update(text) {
 
 port.onMessage.addListener((msg, port) => {
   var text = "";
+  var target = "";
   switch (msg.request) {
     case "keep-alive":
       text = `CO2: ${wait_symbols[wait_counter++ % wait_symbols.length]} ppm`;
+      target = `http:\\${msg.config.target_ip}`;
       document.title = text;
       if (ready == false && msg.config.show_overlay == true) {
         html_append(msg.config.left_position, msg.config.top_position);
         ready = true;
       } else if (switcher == 0) {
-        html_update(text);
+        html_update(text, target);
       }
       if (switcher > 0) switcher -= 1;
       break;
 
     case "ppm-update":
       text = `CO2: ${msg.ppm} ppm`;
-      html_update(text);
+      target = `http:\\${msg.target_ip}`;
+      html_update(text, target);
       if (switcher < 65535) switcher += 2;
       break;
 

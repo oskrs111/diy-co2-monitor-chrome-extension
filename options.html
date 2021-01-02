@@ -21,15 +21,21 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
       a {
         float: right;
       }
+      input.ip {
+        max-width: 12em;
+      }
+      input.px {
+        max-width: 4em;
+      }
     </style>
   </head>
   <body>
     <h3>diy-co2-monitor tracker config</h3>
-    <span>Device IP Address: </span><input id="target_ip" type="text" /><br />
+    <span>Device IP Address: </span><input id="target_ip" type="text" class="ip" /><br />
     <span>Show Tab: </span><input id="show_tab" type="checkbox" /><br />
     <span>Show Overlay: </span><input id="show_overlay" type="checkbox" /><br />
-    <span>Device Left position: </span><input id="left_position" type="number" /><br />
-    <span>Device Top position: </span><input id="top_position" type="number" /><br />
+    <span>Overlay Left position: </span><input id="left_position" type="number" class="px" /> px<br />
+    <span>Overlay Top position: </span><input id="top_position" type="number" class="px" /> px<br />
     <br />
     <b><a href="https://github.com/oskrs111/diy-co2-monitor" target="_blank">Fork me on Github!</a></b>
     <br />

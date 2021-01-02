@@ -24,6 +24,7 @@ function save_options() {
       show_tab: show_tab,
       left_position: left_position,
       top_position: top_position,
+      init: true,
     },
     function () {
       var status = document.getElementById("status");
@@ -43,8 +44,17 @@ function restore_options() {
       show_overlay: "",
       left_position: "",
       top_position: "",
+      init: "",
     },
     function (items) {
+      if (items.init != true) {
+        items.target_ip = "0.0.0.0";
+        items.show_tab = true;
+        items.show_overlay = true;
+        items.left_position = 100;
+        items.top_position = 100;
+      }
+
       document.getElementById("target_ip").value = items.target_ip;
       document.getElementById("show_tab").checked = items.show_tab;
       document.getElementById("show_overlay").checked = items.show_overlay;

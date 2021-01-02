@@ -99,7 +99,7 @@ function fetch_data() {
             var data = JSON.parse(text);
             update_title(data.ppm);
             try {
-              _port.postMessage({ request: "ppm-update", ppm: data.ppm });
+              _port.postMessage({ request: "ppm-update", ppm: data.ppm, target_ip: _items.target_ip });
             } catch (err) {}
           })
           .catch((err) => {
