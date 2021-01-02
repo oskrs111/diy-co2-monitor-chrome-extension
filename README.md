@@ -1,7 +1,7 @@
 # diy-co2-monitor-chrome-extension
 
-![Logo](/images/logo.png) \
-A chrome extension for in-browser CO2 level monitoring using [diy-co2-monitor](https://github.com/oskrs111/diy-co2-monitor | width=100) hardware.
+![Logo](/images/logo.png | width=100) \
+A chrome extension for in-browser CO2 level monitoring using [diy-co2-monitor](https://github.com/oskrs111/diy-co2-monitor) hardware.
 
 This extension can be configured to show CO2 level in tab titles and/or in floating overlay.
 
